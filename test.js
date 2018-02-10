@@ -1,4 +1,3 @@
-const foo    = (foo) => foo + 'foo';
+const foo = foo => foo + "foo";
 const bar = foo("bar");
-const somethingElse = () => 
-  'lskdjflsjdf';
+const somethingElse = () => "lskdjflsjdf";

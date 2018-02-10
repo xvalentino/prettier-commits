@@ -14,6 +14,7 @@ echo "$jsfiles" | xargs ./node_modules/.bin/prettier --write
 echo 'ran prettier on current branch'
 
 echo 'commiting changes'
+echo "$jsfiles" | xargs git add
 git commit --amend --no-edit
 echo 'changes commited'
 

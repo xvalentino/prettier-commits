@@ -15,7 +15,8 @@ echo 'ran prettier on current branch'
 
 echo 'commiting changes'
 echo "$jsfiles" | xargs git add
-git commit --amend --no-edit
+sleep 1
+git commit --amend
 echo 'changes commited'
 
 # git fetch && git checkout origin/master

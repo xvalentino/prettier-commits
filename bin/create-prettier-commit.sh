@@ -17,10 +17,11 @@ echo 'commiting changes'
 echo "$jsfiles" | (xargs git add) && git commit --amend --no-edit
 echo 'changes commited'
 
-git fetch && git checkout origin/master
+# git fetch && git checkout origin/master
+git checkout mater
 git checkout -b 683adea0-51b1-460c-8156-c6d040d6c807
 echo "$jsfiles" | xargs ./node_modules/.bin/prettier --write
-echo "$jsfiles" | (xargs git add) && git commit --amend --no-edit
+echo "$jsfiles" | (xargs git add) && git commit -m 'prettier changes'
 echo "$currentBranch" | xargs git checkout
-git rebase 683adea0-51b1-460c-8156-c6d040d6c807
+git rebase -s=ours 683adea0-51b1-460c-8156-c6d040d6c807
 git branch -D 683adea0-51b1-460c-8156-c6d040d6c807

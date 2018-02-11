@@ -14,15 +14,13 @@ echo "$jsfiles" | xargs ./node_modules/.bin/prettier --write
 echo 'ran prettier on current branch'
 
 echo 'commiting changes'
-echo "$jsfiles" | xargs git add
-sleep 1
-git commit --amend
+echo "$jsfiles" | (xargs git add) && git commit --amend --no-edit
 echo 'changes commited'
 
-# git fetch && git checkout origin/master
-# git checkout -b 683adea0-51b1-460c-8156-c6d040d6c807
-# echo "$jsfiles" | xargs ./node_modules/.bin/prettier --write
-# git add . && git commit -m ‘prettier commit’
-# echo "$currentBranch" | xargs git checkout
-# git rebase 683adea0-51b1-460c-8156-c6d040d6c807
-# git branch -D 683adea0-51b1-460c-8156-c6d040d6c807
+git fetch && git checkout origin/master
+git checkout -b 683adea0-51b1-460c-8156-c6d040d6c807
+echo "$jsfiles" | xargs ./node_modules/.bin/prettier --write
+echo "$jsfiles" | (xargs git add) && git commit --amend --no-edit
+echo "$currentBranch" | xargs git checkout
+git rebase 683adea0-51b1-460c-8156-c6d040d6c807
+git branch -D 683adea0-51b1-460c-8156-c6d040d6c807
